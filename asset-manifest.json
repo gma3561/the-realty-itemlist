@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/the-realty-itemlist/static/css/main.ea649f7c.css",
+    "main.js": "/the-realty-itemlist/static/js/main.d6065477.js",
+    "index.html": "/the-realty-itemlist/index.html",
+    "main.ea649f7c.css.map": "/the-realty-itemlist/static/css/main.ea649f7c.css.map",
+    "main.d6065477.js.map": "/the-realty-itemlist/static/js/main.d6065477.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ea649f7c.css",
+    "static/js/main.d6065477.js"
+  ]
+}
