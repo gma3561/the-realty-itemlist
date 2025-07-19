@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 매물 검색 시스템
 
 수파베이스와 GitHub Pages를 활용한 매물 검색 웹 애플리케이션입니다.
@@ -44,5 +45,82 @@ GitHub Pages를 통해 배포하려면:
 - 실제 서비스에서는 보안 설정을 더 강화해야 합니다.
 
 ## 라이선스
+=======
+# Property Search System
+
+A React application for searching and managing real estate properties, integrated with Supabase for data storage.
+
+## Features
+
+- Search properties by location, name, or contact information
+- Filter properties by region, property type, and transaction type
+- View detailed property information
+- Responsive design for mobile and desktop
+
+## Technologies Used
+
+- React
+- Styled Components
+- Supabase (PostgreSQL database)
+- GitHub Pages for hosting
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```
+git clone https://github.com/gma3561/the-realty-itemlist.git
+cd the-realty-itemlist
+```
+
+2. Install dependencies:
+```
+npm install
+```
+
+3. Start the development server:
+```
+npm start
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Deployment
+
+This project is configured for deployment to GitHub Pages:
+
+```
+npm run deploy
+```
+
+## Project Structure
+
+```
+property-search-react/
+├── public/               # Static files
+├── src/                  # Source code
+│   ├── components/       # React components
+│   ├── utils/            # Utility functions
+│   ├── App.js            # Main app component
+│   ├── App.css           # Global styles
+│   └── index.js          # Entry point
+├── package.json          # Dependencies and scripts
+└── README.md             # Documentation
+```
+
+## Data Model
+
+The application uses the following data structure in Supabase:
+
+- `properties` table with columns for property details, contact information, etc.
+
+## License
+>>>>>>> e7f0742 (Initial commit: React property search application)
 
 MIT
