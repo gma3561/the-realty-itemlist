@@ -102,7 +102,7 @@ const ContactSection = styled.div`
   margin-top: 1rem;
 `;
 
-function PropertyDetail({ property, onClose }) {
+function PropertyDetail({ property, onClose, showContactInfo = false }) {
   return (
     <ModalOverlay onClick={(e) => e.target === e.currentTarget && onClose()}>
       <ModalContent>
@@ -170,42 +170,53 @@ function PropertyDetail({ property, onClose }) {
           </DetailSection>
 
           <DetailSection>
-            <SectionTitle>Contact Information</SectionTitle>
+            <SectionTitle>연락처 정보</SectionTitle>
             <ContactSection>
-              {property.연락처1 && (
+              {showContactInfo ? (
+                <>
+                  {property.연락처1 && (
+                    <DetailRow>
+                      <DetailLabel>주 연락처</DetailLabel>
+                      <DetailValue>
+                        {property.연락처1}
+                        {property.연락자1 && ` (${property.연락자1})`}
+                      </DetailValue>
+                    </DetailRow>
+                  )}
+                  
+                  {property.연락처2 && (
+                    <DetailRow>
+                      <DetailLabel>추가 연락처</DetailLabel>
+                      <DetailValue>
+                        {property.연락처2}
+                        {property.연락자2 && ` (${property.연락자2})`}
+                      </DetailValue>
+                    </DetailRow>
+                  )}
+                  
+                  {property.연락처3 && (
+                    <DetailRow>
+                      <DetailLabel>기타 연락처</DetailLabel>
+                      <DetailValue>
+                        {property.연락처3}
+                        {property.연락자3 && ` (${property.연락자3})`}
+                      </DetailValue>
+                    </DetailRow>
+                  )}
+                  
+                  {property.연락메모 && (
+                    <DetailRow>
+                      <DetailLabel>연락 메모</DetailLabel>
+                      <DetailValue>{property.연락메모}</DetailValue>
+                    </DetailRow>
+                  )}
+                </>
+              ) : (
                 <DetailRow>
-                  <DetailLabel>Primary Contact</DetailLabel>
                   <DetailValue>
-                    {property.연락처1}
-                    {property.연락자1 && ` (${property.연락자1})`}
+                    연락처 정보는 로그인 후 확인할 수 있습니다.
+                    {property.담당자 && ` 담당자(${property.담당자})에게 문의하세요.`}
                   </DetailValue>
-                </DetailRow>
-              )}
-              
-              {property.연락처2 && (
-                <DetailRow>
-                  <DetailLabel>Secondary Contact</DetailLabel>
-                  <DetailValue>
-                    {property.연락처2}
-                    {property.연락자2 && ` (${property.연락자2})`}
-                  </DetailValue>
-                </DetailRow>
-              )}
-              
-              {property.연락처3 && (
-                <DetailRow>
-                  <DetailLabel>Additional Contact</DetailLabel>
-                  <DetailValue>
-                    {property.연락처3}
-                    {property.연락자3 && ` (${property.연락자3})`}
-                  </DetailValue>
-                </DetailRow>
-              )}
-              
-              {property.연락메모 && (
-                <DetailRow>
-                  <DetailLabel>Contact Notes</DetailLabel>
-                  <DetailValue>{property.연락메모}</DetailValue>
                 </DetailRow>
               )}
             </ContactSection>
