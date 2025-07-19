@@ -1,0 +1,54 @@
+# Supabase Database Schema Diagnosis
+
+## Summary
+After running multiple diagnostics, I can confirm that **the required tables (properties and user_profiles) do not exist** in your Supabase instance at https://qwxghpwasmvottahchky.supabase.co.
+
+## Key Findings
+
+1. **Missing Tables**: All attempts to access 'properties', 'public_properties', and 'user_profiles' tables resulted in "relation does not exist" errors.
+
+2. **Database Configuration**: The application code is correctly configured to use Supabase, but the database schema has not been set up.
+
+3. **RLS Settings**: Tests for Row-Level Security are not relevant since the tables don't exist in the first place.
+
+4. **Code Review**: The React application code looks well-structured and correctly uses Supabase for data storage and authentication, but it's trying to access tables that haven't been created yet.
+
+## Required Schema
+
+Based on the application code, the following tables need to be created:
+
+1. **properties** - Main table for property listings with columns:
+   - 등록일 (Registration Date)
+   - 지역 (Region)
+   - 매물종류 (Property Type)
+   - 거래유형 (Transaction Type)
+   - 매물명 (Property Name)
+   - 소재지 (Location)
+   - 동 (Building/Block)
+   - 호 (Unit)
+   - 금액 (Price)
+   - 담당자 (Manager)
+   - 소유자 (Owner)
+   - 식별번호 (Identification Number)
+   - 연락처1, 연락자1, 관계1 (Contact 1 details)
+   - 연락처2, 연락자2, 관계2 (Contact 2 details)
+   - 연락처3, 연락자3, 관계3 (Contact 3 details)
+   - 연락메모 (Contact Notes)
+   - 비고 (Remarks)
+   - created_by (User ID who created the listing)
+
+2. **user_profiles** - User profile information with columns:
+   - id (User ID)
+   - role (User role - 'admin', 'staff', etc.)
+
+3. **public_properties** - This appears to be a view or table with limited information for unauthenticated users.
+
+## Next Steps
+
+1. Log in to the Supabase dashboard at https://app.supabase.io
+2. Navigate to the database section
+3. Create the required tables with appropriate columns
+4. Set up row-level security (RLS) policies if needed
+5. Create the necessary relationships between tables
+
+Once these tables are created, the application should work as expected.
