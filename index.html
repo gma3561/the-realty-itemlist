@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>매물 검색 시스템</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>매물 검색 시스템</h1>
+    </header>
+
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="검색어 입력 (전화번호, 지역, 매물명 등)">
+        <button id="searchButton">검색</button>
+      </div>
+
+      <div class="filters">
+        <select id="regionFilter">
+          <option value="">지역 선택</option>
+          <!-- 지역 옵션 동적 추가 -->
+        </select>
+        
+        <select id="typeFilter">
+          <option value="">매물 종류</option>
+          <!-- 매물 종류 옵션 동적 추가 -->
+        </select>
+        
+        <select id="transactionFilter">
+          <option value="">거래 유형</option>
+          <!-- 거래 유형 옵션 동적 추가 -->
+        </select>
+      </div>
+    </div>
+
+    <div class="results-container">
+      <div class="results-count">검색 결과: <span id="resultCount">0</span>건</div>
+      <div id="resultsList" class="results-list">
+        <!-- 검색 결과가 여기에 표시됩니다 -->
+      </div>
+    </div>
+  </div>
+
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="propertyDetails"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
